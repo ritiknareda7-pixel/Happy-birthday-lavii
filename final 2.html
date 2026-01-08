@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Dearest Lavii 🍓</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-light: #ffe3e8;
+            --pink-medium: #ff85a1;
+            --pink-dark: #ff4d6d;
+            --strawberry-red: #e63946;
+            --cream: #fff9fb;
+        }
+
+        * { box-sizing: border-box; }
+        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: var(--cream); color: #444; overflow-x: hidden; }
+
+        /* Floating Strawberries */
+        .strawberry-bg { position: fixed; font-size: 25px; z-index: 1000; pointer-events: none; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+        /* Page Transitions */
+        .page { display: none; min-height: 100vh; width: 100%; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; opacity: 0; transition: opacity 0.8s ease; }
+        .page.active { display: flex; opacity: 1; }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: clamp(3rem, 8vw, 4.5rem); color: var(--pink-dark); margin-bottom: 20px; }
+
+        /* Beautiful Letter */
+        .letter-container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 700px;
+            position: relative;
+            border: 1px solid #eee;
+            line-height: 1.8;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            text-align: left;
+            color: #2c3e50;
+        }
+        .letter-accent { color: var(--pink-dark); font-weight: bold; }
+
+        .btn {
+            background: var(--pink-dark);
+            color: white;
+            border: none;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+            margin-top: 40px;
+        }
+        .btn:hover { transform: scale(1.05); background: var(--strawberry-red); }
+
+        /* Gallery */
+        .gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; width: 100%; max-width: 1100px; padding: 20px; }
+        .photo-card { background: white; padding: 12px; border-radius: 10px; box-shadow: 0 8px 15px rgba(0,0,0,0.05); transform: rotate(var(--rot)); }
+        .photo-card img { width: 100%; height: 280px; object-fit: cover; border-radius: 5px; }
+
+        /* Game Box */
+        #game-box { position: relative; height: 250px; width: 100%; max-width: 400px; margin: 20px auto; }
+        #no-btn { position: absolute; transition: 0.15s; }
+
+        /* Music Control */
+        #music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 20px;
+        }
+
+        .gift-container { font-size: 5rem; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    </style>
+</head>
+<body>
+
+    <audio id="player" loop></audio>
+
+    <div id="music-control" onclick="toggleMusic()">🔊</div>
+
+    <section id="p1" class="page active">
+        <div style="background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <h1 style="font-size: 3rem;">Hi Lavii! 🍓</h1>
+            <p>I've been waiting for this day.<br>Pick a song to start your surprise:</p>
+            <select id="songChoice" style="padding: 12px; border-radius: 10px; border: 1.5px solid var(--pink-medium); margin: 15px; width: 250px;">
+                <option value="song1.mp3">beedi jalale</option>
+                <option value="song2.mp3">night changes</option>
+                <option value="song3.mp3">life goes on</option>
+            </select>
+            <br>
+            <button class="btn" onclick="initiate()">Unlock My Love ✨</button>
+        </div>
+    </section>
+
+    <section id="p2" class="page">
+        <div class="letter-container">
+            <p>9th January 2026</p>
+            <p>My Dearest <span class="letter-accent">Shreya (Lavii)</span>,</p>
+            <p>
+                They say that best friends are the family we choose for ourselves, but with you, it feels like the universe did me a huge favor. 
+                Watching you grow and navigate life has been one of my favorite stories to witness.
+            </p>
+            <p>
+                You have this rare light—a mix of <span class="letter-accent">strawberry-sweetness</span> and a strength that inspires me every day. 
+                As you step into your 19th year, I hope you never lose that sparkle in your eyes or that beautiful smile that can brighten my darkest days.
+            </p>
+            <p>
+                May this year bring you as much joy as you give to me. You are rare, you are precious, and you are loved more than words can ever describe.
+            </p>
+            <p>Happy Birthday, my favorite person.</p>
+            <p>Always yours,<br><span class="letter-accent" style="font-size: 1.5rem; font-family: 'Dancing Script';">Ritik</span></p>
+        </div>
+        <button class="btn" onclick="showPage(3)">Relive Our Memories 📸</button>
+    </section>
+
+    <section id="p3" class="page">
+        <h1>10 Special Chapters</h1>
+        <div class="gallery-container" id="gallery"></div>
+        <button class="btn" onclick="showPage(4)">Wait, answer this... 🤫</button>
+    </section>
+
+    <section id="p4" class="page">
+        <h1>Truth Moment!</h1>
+        <h3>Do you love Ritik? ❤️</h3>
+        <div id="game-box">
+            <button class="btn" onclick="win()">YES!</button>
+            <button class="btn" id="no-btn" onmouseover="moveNo()">NO</button>
+        </div>
+    </section>
+
+    <section id="p5" class="page">
+        <h1>Happy 19th Birthday! 🍓</h1>
+        <div class="gift-container">🍓🎁🍰</div>
+        <p>I hope you loved this surprise, Lavii.<br>You deserve the best day ever!</p>
+        <button class="btn" onclick="location.reload()">Start Over ❤️</button>
+    </section>
+
+    <script>
+        const music = document.getElementById('player');
+        const musicBtn = document.getElementById('music-control');
+
+        function initiate() {
+            music.src = document.getElementById('songChoice').value;
+            music.play();
+            musicBtn.style.display = 'flex'; // Show mute button
+            setInterval(createStrawberry, 500);
+            showPage(2);
+        }
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = "🔊";
+            } else {
+                music.pause();
+                musicBtn.innerHTML = "🔈";
+            }
+        }
+
+        function showPage(num) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            setTimeout(() => {
+                const next = document.getElementById('p' + num);
+                next.classList.add('active');
+                if(num === 3) generateGallery();
+                window.scrollTo(0,0);
+            }, 300);
+        }
+
+        function generateGallery() {
+            const gallery = document.getElementById('gallery');
+            if(gallery.innerHTML !== "") return;
+
+            const msgs = [
+                "Where it all began. 🍼", "A little strawberry soul. 🍓", "That pure, happy smile. ✨",
+                "Growing with so much grace. 🌸", "The spark of every moment. 🎈", "Unstoppable and kind. 💖",
+                "Chasing dreams and light. 🌟", "Forever young at heart. 🌍", "Simply stunning. 👑", "Level 19: The Best Yet! 🎂"
+            ];
+
+            for(let i=1; i<=10; i++) {
+                const rotation = (Math.random() * 8 - 4) + 'deg';
+                gallery.innerHTML += `
+                    <div class="photo-card" style="--rot: ${rotation}">
+                        <div style="font-size: 0.8rem; color: #999; margin-bottom: 5px;">MEMORY #${i}</div>
+                        <img src="${i}.jpg" alt="Memory ${i}" onerror="this.src='https://via.placeholder.com/300?text=Check+${i}.jpg'">
+                        <p style="font-size: 0.9rem; margin-top: 10px; font-weight: 600;">${msgs[i-1]}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function moveNo() {
+            const btn = document.getElementById('no-btn');
+            const box = document.getElementById('game-box');
+            const maxX = box.clientWidth - btn.clientWidth;
+            const maxY = box.clientHeight - btn.clientHeight;
+            btn.style.left = Math.random() * maxX + 'px';
+            btn.style.top = Math.random() * maxY + 'px';
+        }
+
+        function win() {
+            alert("I knew it! ❤️ Besties Forever!");
+            showPage(5);
+        }
+
+        function createStrawberry() {
+            const s = document.createElement('div');
+            s.className = 'strawberry-bg';
+            s.innerHTML = '🍓';
+            s.style.left = Math.random() * 100 + 'vw';
+            s.style.top = '-50px';
+            s.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(s);
+            setTimeout(() => s.remove(), 5000);
+        }
+    </script>
+</body>
+</html>
+
